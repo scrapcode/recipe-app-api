@@ -1,7 +1,6 @@
 """
 Serializers for the user API View.
 """
-from attr import validate
 from django.contrib.auth import (
     get_user_model,
     authenticate,
@@ -18,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = get_user_model()
         fields = ['email', 'password', 'name']
         extra_kwargs = {
-            'password': { 'write_only': True, 'min_length': 5 },
+            'password': {'write_only': True, 'min_length': 5},
         }
 
     def create(self, validated_data):
